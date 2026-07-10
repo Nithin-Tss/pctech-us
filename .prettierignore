@@ -2,5 +2,6 @@ dist
 node_modules
 .astro
 .claude
+.vercel
 report
 package-lock.json
