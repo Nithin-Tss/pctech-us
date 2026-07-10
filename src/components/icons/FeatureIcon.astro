@@ -343,6 +343,18 @@ const { name, class: className = 'w-5 h-5' } = Astro.props;
   }
 
   {
+    name === 'trophy' && (
+      <>
+        <path d="M8 21h8" />
+        <path d="M12 17v4" />
+        <path d="M7 4h10v5a5 5 0 01-10 0V4z" />
+        <path d="M7 5H4.5a2 2 0 000 4H7" />
+        <path d="M17 5h2.5a2 2 0 010 4H17" />
+      </>
+    )
+  }
+
+  {
     name === 'briefcase-search' && (
       <>
         <rect x="3.5" y="8.3" width="17" height="10.4" rx="1.6" />

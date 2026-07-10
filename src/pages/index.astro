@@ -96,9 +96,9 @@ const industries = [
 ];
 
 const trust = [
-  { value: '1000+', label: 'Trusted By' },
-  { value: '500+', label: 'Certifications' },
-  { value: '100+', label: 'Awards' },
+  { value: '1000+', label: 'Trusted By', icon: 'user-check' },
+  { value: '500+', label: 'Certifications', icon: 'badge' },
+  { value: '100+', label: 'Awards', icon: 'trophy' },
 ];
 
 const clients = Array.from({ length: 10 }, (_, i) => i + 1);
@@ -418,6 +418,9 @@ const clients = Array.from({ length: 10 }, (_, i) => i + 1);
                 const [, num, suffix] = match ?? [null, t.value, ''];
                 return (
                   <div class="rounded-2xl border border-white/70 bg-white/55 p-5 text-center backdrop-blur-md">
+                    <div class="mx-auto mb-2.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#E4EBD6] text-brand">
+                      <FeatureIcon name={t.icon} class="h-5 w-5" />
+                    </div>
                     <div
                       class="js-counter font-serif text-[28px] font-bold text-brand"
                       data-target={num}

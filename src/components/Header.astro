@@ -1,5 +1,15 @@
 ---
-const socials = ['in', 'x', 'fb'];
+import SocialIcon from './icons/SocialIcon.astro';
+
+const socials = [
+  {
+    name: 'instagram',
+    hoverClass:
+      'hover:bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)]',
+  },
+  { name: 'facebook', hoverClass: 'hover:bg-[#1877F2]' },
+  { name: 'linkedin', hoverClass: 'hover:bg-[#0A66C2]' },
+];
 
 const services = [
   { name: 'IT Development', href: '/it-development' },
@@ -37,10 +47,11 @@ const platforms = [
           socials.map((s) => (
             <a
               href="#"
-              title={s}
-              class="flex h-6.5 w-6.5 items-center justify-center rounded-full bg-white/15 font-mono text-[10px] text-cream-alt!"
+              title={s.name}
+              aria-label={s.name}
+              class={`flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white/15 text-cream-alt! transition-all duration-300 hover:-translate-y-0.5 hover:text-white! hover:shadow-[0_4px_12px_rgba(0,0,0,0.25)] ${s.hoverClass}`}
             >
-              {s}
+              <SocialIcon name={s.name} class="h-4 w-4" />
             </a>
           ))
         }
@@ -79,7 +90,7 @@ const platforms = [
           Services <span class="text-[10px]">▾</span>
         </span>
         <div
-          class="invisible absolute top-full -left-4 grid w-120 grid-cols-2 gap-1 rounded-2xl border border-white/70 bg-white/65 p-4 opacity-0 shadow-[0_20px_48px_rgba(43,77,1,0.18)] backdrop-blur-2xl transition-opacity duration-150 group-hover:visible group-hover:opacity-100"
+          class="invisible absolute top-full left-1/2 grid w-120 translate-x-[-42%] grid-cols-2 gap-1 rounded-2xl border border-white/80 bg-white/85 p-4 opacity-0 shadow-[0_20px_48px_rgba(43,77,1,0.18)] backdrop-blur-2xl transition-opacity duration-150 group-hover:visible group-hover:opacity-100"
         >
           {
             services.map((svc) => (
