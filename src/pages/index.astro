@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import FeatureIcon from '../components/icons/FeatureIcon.astro';
 
 const services = [
   {
@@ -67,10 +68,10 @@ const platforms = [
 ];
 
 const stats = [
-  { value: '5+', label: 'Years in Business' },
-  { value: '250', label: 'Happy Customers' },
-  { value: '15', label: 'Companies' },
-  { value: '40', label: 'Employees' },
+  { value: '5+', label: 'Years in Business', icon: 'briefcase' },
+  { value: '250', label: 'Happy Customers', icon: 'users' },
+  { value: '15', label: 'Companies', icon: 'building' },
+  { value: '40', label: 'Employees', icon: 'id-card' },
 ];
 
 const industries = [
@@ -290,6 +291,16 @@ const clients = Array.from({ length: 10 }, (_, i) => i + 1);
     <section class="relative overflow-hidden px-12 py-22">
       <div class="absolute inset-0 bg-linear-to-br from-brand to-brand-dark">
       </div>
+      <div class="relative mx-auto mb-14 max-w-160 text-center">
+        <div
+          class="mb-2.5 text-[13px] font-bold tracking-widest text-sage uppercase"
+        >
+          Why Partner With Us
+        </div>
+        <h2 class="m-0 font-serif text-[34px] text-cream!">
+          Easy way to collaborate our company
+        </h2>
+      </div>
       <div class="relative mx-auto grid max-w-275 grid-cols-4 gap-6">
         {
           stats.map((s) => {
@@ -297,6 +308,9 @@ const clients = Array.from({ length: 10 }, (_, i) => i + 1);
             const [, num, suffix] = match ?? [null, s.value, ''];
             return (
               <div class="rounded-2xl border border-white/22 bg-white/10 px-5 py-8 text-center backdrop-blur-md">
+                <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/15 text-cream">
+                  <FeatureIcon name={s.icon} />
+                </div>
                 <div
                   class="js-counter mb-2 font-serif text-[40px] font-bold text-cream!"
                   data-target={num}
