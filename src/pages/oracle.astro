@@ -1,0 +1,34 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'ERP Implementation',
+    desc: 'Finance, supply chain, and HCM modules configured for your business.',
+    icon: 'building',
+  },
+  {
+    title: 'Database Administration',
+    desc: 'Performance tuning, security, and reliability for Oracle DBs.',
+    icon: 'database',
+  },
+  {
+    title: 'Cloud Migration',
+    desc: 'Move Oracle workloads to OCI with minimal downtime.',
+    icon: 'cloud-migration',
+  },
+  {
+    title: 'Upgrade Support',
+    desc: 'Plan and execute version upgrades with confidence.',
+    icon: 'arrow-up-circle',
+  },
+];
+---
+
+<ServicePage
+  title="Oracle"
+  tagline="Oracle ERP and database consulting for complex enterprise environments."
+  intro="Our Oracle specialists support implementations, upgrades, and performance tuning across ERP, database, and cloud infrastructure environments."
+  heroImage="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=80"
+  features={features}
+/>

@@ -1,0 +1,17 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# tool reports
+report/
+
+# env
+.env
+.env.*
+!.env.example
+
+# editor/os
+.DS_Store

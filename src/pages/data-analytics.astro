@@ -1,0 +1,34 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'Data Engineering',
+    desc: 'Build reliable data pipelines that collect, process, and transform information at scale. We help organizations create robust foundations for analytics and smarter decision-making.',
+    icon: 'pipeline',
+  },
+  {
+    title: 'Business Intelligence',
+    desc: 'Turn complex data into clear insights with interactive dashboards and reporting solutions that empower faster, data-driven decisions.',
+    icon: 'bar-chart',
+  },
+  {
+    title: 'Data Warehousing',
+    desc: 'Centralize and organize your data with secure, scalable platforms designed to support analytics, governance, and long-term business growth.',
+    icon: 'database',
+  },
+  {
+    title: 'Predictive Analytics',
+    desc: 'Leverage advanced analytics and AI-driven models to uncover trends, forecast outcomes, and transform historical data into actionable insights.',
+    icon: 'trending-up',
+  },
+];
+---
+
+<ServicePage
+  title="Data & Analytics"
+  tagline="Turn data into a strategic advantage with advanced analytics solutions that enable smarter decisions, optimize performance, and fuel innovation."
+  intro="We help you turn raw data into decisions — building the pipelines, warehouses, and dashboards that give your teams a clear, trustworthy view of the business."
+  heroImage="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80"
+  features={features}
+/>

@@ -1,0 +1,474 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const services = [
+  {
+    name: 'IT Development',
+    mono: 'IT',
+    href: '/it-development',
+    blurb:
+      'Our IT development services are designed to help your business scale with reliable, modern software.',
+  },
+  {
+    name: 'Staffing Services',
+    mono: 'STF',
+    href: '/staffing-services',
+    blurb:
+      'Finding the right talent for your organization can be a challenging, time-consuming process — we simplify it.',
+  },
+  {
+    name: 'Cloud Practices',
+    mono: 'CLD',
+    href: '/cloud-practices',
+    blurb:
+      'We understand the transformative power of cloud computing for modern enterprises.',
+  },
+  {
+    name: 'Digital Transformation',
+    mono: 'DGX',
+    href: '/digital-transformation',
+    blurb:
+      'We believe in the power of digital transformation to revolutionize how you operate.',
+  },
+  {
+    name: 'Data & Analytics',
+    mono: 'D&A',
+    href: '/data-analytics',
+    blurb:
+      'We empower businesses to harness the power of data with comprehensive analytics solutions.',
+  },
+  {
+    name: 'RPO',
+    mono: 'RPO',
+    href: '/rpo',
+    blurb:
+      'Recruitment process outsourcing that scales your hiring without scaling your overhead.',
+  },
+];
+
+const serviceIcons: Record<string, string> = {
+  IT: '<polyline points="9 8 4 12 9 16"/><polyline points="15 8 20 12 15 16"/>',
+  STF: '<circle cx="9" cy="8" r="3"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 5.5a3 3 0 0 1 0 5.8"/><path d="M15 13c2.8.3 5 2.8 5 6"/>',
+  CLD: '<path d="M7 18a4 4 0 0 1-.5-7.97A5 5 0 0 1 16 8a4.5 4.5 0 0 1 1 8.9"/><path d="M7 18h10"/>',
+  DGX: '<path d="M4 7h13"/><polyline points="14 4 17 7 14 10"/><path d="M20 17H7"/><polyline points="10 14 7 17 10 20"/>',
+  'D&A':
+    '<line x1="5" y1="20" x2="5" y2="11"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="19" y1="20" x2="19" y2="15"/>',
+  RPO: '<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+};
+
+const platforms = [
+  { name: 'Salesforce', href: '/salesforce' },
+  { name: 'ServiceNow', href: '/servicenow' },
+  { name: 'Oracle', href: '/oracle' },
+  { name: 'SAP', href: '/sap' },
+];
+
+const stats = [
+  { value: '5+', label: 'Years in Business' },
+  { value: '250', label: 'Happy Customers' },
+  { value: '15', label: 'Companies' },
+  { value: '40', label: 'Employees' },
+];
+
+const industries = [
+  {
+    name: 'Manufacturing',
+    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=700&q=80',
+    blurb:
+      'Accelerate manufacturing excellence through cloud, data, and automation technologies that enhance productivity, efficiency, and operational performance.',
+  },
+  {
+    name: 'Automotive',
+    img: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=700&q=80',
+    blurb:
+      'Empower your automotive business with intelligent IT solutions that drive innovation, improve efficiency, and enable sustainable growth in a dynamic industry.',
+  },
+  {
+    name: 'Healthcare',
+    img: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?w=700&q=80',
+    blurb:
+      'Transform healthcare delivery with intelligent IT solutions that improve patient care, enhance operational efficiency, and ensure the highest standards of data security.',
+  },
+];
+
+const trust = [
+  { value: '1000+', label: 'Trusted By' },
+  { value: '500+', label: 'Certifications' },
+  { value: '100+', label: 'Awards' },
+];
+
+const clients = Array.from({ length: 10 }, (_, i) => i + 1);
+---
+
+<BaseLayout
+  title="Home"
+  description="Our mission is to serve our customers by providing a broad range of consulting and staffing services and to be the best at identifying, qualifying, and delivering software solutions."
+>
+  <div class="bg-cream font-sans text-ink">
+    <Header />
+
+    <!-- HERO -->
+    <section class="relative flex min-h-155 items-center overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=80"
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+      <div class="absolute inset-0 bg-linear-to-r from-black/80 to-black/40">
+      </div>
+
+      <div class="relative mx-auto w-full max-w-300 px-12">
+        <div
+          class="max-w-155 rounded-3xl border border-white/28 bg-white/14 p-12 shadow-[0_24px_60px_rgba(0,0,0,0.2)] backdrop-blur-2xl"
+        >
+          <div
+            class="mb-3.5 text-[13px] font-semibold tracking-wide text-sage uppercase"
+          >
+            P &amp; C Technology Consulting
+          </div>
+          <h1
+            class="mt-0 mb-5 font-serif text-[46px] leading-tight text-cream!"
+          >
+            Creating a better<br />IT solutions
+          </h1>
+          <p class="mt-0 mb-8 text-base leading-relaxed text-mist">
+            Our mission is to serve our customers by providing a broad range of
+            consulting and staffing services and to be the best at identifying,
+            qualifying, and delivering software solutions.
+          </p>
+          <div class="flex flex-wrap gap-3.5">
+            <a
+              href="/solutions"
+              class="rounded-full bg-cream px-7 py-3.5 text-sm font-bold text-brand-dark! no-underline"
+            >
+              Our Portfolio
+            </a>
+            <a
+              href="/about-us"
+              class="rounded-full border border-white/40 bg-white/12 px-7 py-3.5 text-sm font-bold text-cream! no-underline"
+            >
+              See How It Works
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section
+      class="mx-auto grid max-w-300 grid-cols-[0.9fr_1.1fr] items-center gap-16 px-12 py-25"
+    >
+      <div class="relative aspect-4/5 overflow-hidden rounded-[20px]">
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80"
+          alt="P & C Technology Consulting team"
+          class="block h-full w-full object-cover"
+        />
+      </div>
+      <div>
+        <div
+          class="mb-2.5 text-[16px] font-bold tracking-widest text-brand uppercase"
+        >
+          About Us
+        </div>
+        <h2 class="mt-0 mb-5 font-serif text-[32px] text-brand-dark">
+          P &amp; C Technology Consulting
+        </h2>
+        <p class="mt-0 mb-5 leading-loose text-ink-muted">
+          At P &amp; C Technology Consulting, long-term relationships are the
+          key, and the results are clear. We pledge delivery of the best, most
+          efficient staffing services to solve our client's dynamic technology
+          challenges. As partners on your projects, your success is our only
+          business.
+        </p>
+        <blockquote
+          class="m-0 mb-7 rounded-r-[14px] border-l-[3px] border-brand bg-[#F1ECDD] px-6 py-5 leading-relaxed text-[#363429] italic"
+        >
+          "P &amp; C Technology Consulting is a leading IT solutions provider
+          with over 5 years of experience. We leverage cutting-edge technology
+          and a team of professionals to deliver innovative solutions that drive
+          efficiency, growth, and success in Commercial and Government sectors."
+        </blockquote>
+        <div class="flex flex-wrap gap-3.5">
+          <a
+            href="/about-us"
+            class="rounded-full bg-brand px-6.5 py-3 text-sm font-bold text-cream! no-underline"
+          >
+            Read More
+          </a>
+          <a
+            href="/contact-us"
+            class="rounded-full border-[1.5px] border-brand px-8 py-3 text-sm font-bold text-brand! no-underline"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="bg-[#F1ECDD] px-12 py-25">
+      <div class="mx-auto max-w-300">
+        <div class="mx-auto mb-14 max-w-160 text-center">
+          <div
+            class="mb-2.5 text-[16px] font-bold tracking-widest text-brand uppercase"
+          >
+            We Make Connections
+          </div>
+          <h2 class="mt-0 mb-4 font-serif text-[34px] text-brand-dark">
+            Explore Our Services
+          </h2>
+          <p class="m-0 leading-relaxed text-ink-muted">
+            Whether you're looking for developers with expertise in web
+            development, mobile app development, or any other area of software
+            development, we've got you covered.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6">
+          {
+            services.map((svc) => (
+              <div class="rounded-2xl border-2 border-[rgba(43,77,1,0.16)] bg-white/50 p-8 shadow-[0_8px_28px_rgba(43,77,1,0.08)] backdrop-blur-lg transition-transform duration-300 hover:-translate-y-5 hover:shadow-[0_16px_36px_rgba(43,77,1,0.16)]">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#E4EBD6] text-brand">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    set:html={serviceIcons[svc.mono]}
+                  />
+                </div>
+                <h3 class="mt-0 mb-2.5 font-serif text-[19px] text-brand-dark">
+                  <a href={svc.href} class="text-inherit no-underline">
+                    {svc.name}
+                  </a>
+                </h3>
+                <p class="mt-0 mb-4 leading-relaxed text-ink-muted">
+                  {svc.blurb}
+                </p>
+                <a
+                  href={svc.href}
+                  class="text-[13px] font-bold tracking-wide text-brand! no-underline"
+                >
+                  READ MORE →
+                </a>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-12 text-center">
+          <div
+            class="mb-4 text-xs font-semibold tracking-wide text-[#5C6B45] uppercase"
+          >
+            Platforms We Work With
+          </div>
+          <div class="flex flex-wrap justify-center gap-3.5">
+            {
+              platforms.map((p) => (
+                <a
+                  href={p.href}
+                  class="rounded-full border border-brand/18 bg-white/60 px-6 py-2.5 text-sm font-semibold text-brand-dark! no-underline"
+                >
+                  {p.name}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="relative overflow-hidden px-12 py-22">
+      <div class="absolute inset-0 bg-linear-to-br from-brand to-brand-dark">
+      </div>
+      <div class="relative mx-auto grid max-w-275 grid-cols-4 gap-6">
+        {
+          stats.map((s) => {
+            const match = s.value.match(/^(\d+)(.*)$/);
+            const [, num, suffix] = match ?? [null, s.value, ''];
+            return (
+              <div class="rounded-2xl border border-white/22 bg-white/10 px-5 py-8 text-center backdrop-blur-md">
+                <div
+                  class="js-counter mb-2 font-serif text-[40px] font-bold text-cream!"
+                  data-target={num}
+                  data-suffix={suffix}
+                >
+                  0{suffix}
+                </div>
+                <div class="text-sm font-medium text-sage">{s.label}</div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    <script>
+      const counters = document.querySelectorAll<HTMLElement>('.js-counter');
+
+      const animateCounter = (el: HTMLElement) => {
+        const target = Number(el.dataset.target ?? 0);
+        const suffix = el.dataset.suffix ?? '';
+        const duration = 1400;
+        let start: number | null = null;
+
+        const step = (timestamp: number) => {
+          if (start === null) start = timestamp;
+          const progress = Math.min((timestamp - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = Math.round(eased * target);
+          el.textContent = `${value}${suffix}`;
+          if (progress < 1) requestAnimationFrame(step);
+        };
+
+        requestAnimationFrame(step);
+      };
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target as HTMLElement);
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.4 },
+      );
+
+      counters.forEach((el) => observer.observe(el));
+    </script>
+
+    <!-- INDUSTRIES -->
+    <section class="mx-auto max-w-300 px-12 py-25">
+      <div class="mx-auto mb-14 max-w-150 text-center">
+        <div
+          class="mb-2.5 text-[13px] font-bold tracking-widest text-brand uppercase"
+        >
+          Working With Excellent
+        </div>
+        <h2 class="m-0 font-serif text-[34px] text-brand-dark">Industries</h2>
+      </div>
+      <div class="grid grid-cols-3 gap-6">
+        {
+          industries.map((ind) => (
+            <div class="overflow-hidden rounded-[20px] bg-[#F1ECDD]">
+              <div class="h-50 overflow-hidden">
+                <img
+                  src={ind.img}
+                  alt={ind.name}
+                  class="block h-full w-full object-cover"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="mt-0 mb-2.5 font-serif text-[18px] text-brand-dark">
+                  {ind.name}
+                </h3>
+                <p class="m-0 leading-relaxed text-ink-muted">{ind.blurb}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- WHY US + TRUST -->
+    <section class="bg-[#F1ECDD] px-12 py-25">
+      <div
+        class="mx-auto grid max-w-300 grid-cols-[1.1fr_0.9fr] items-center gap-16"
+      >
+        <div>
+          <h2 class="mt-0 mb-5 font-serif text-[32px] text-brand-dark">
+            Why we are best in consulting company
+          </h2>
+          <p class="mt-0 mb-8 leading-loose text-ink-muted">
+            For years, P &amp; C Technology Consulting (PCTC) has been a trusted
+            partner for businesses seeking innovative IT solutions. Our team of
+            certified experts harnesses the latest technologies to drive
+            efficiency, growth, and success for organizations across Government,
+            Manufacturing, Healthcare, Automotive, and Service sectors.
+          </p>
+          <div class="grid grid-cols-3 gap-5">
+            {
+              trust.map((t) => {
+                const match = t.value.match(/^(\d+)(.*)$/);
+                const [, num, suffix] = match ?? [null, t.value, ''];
+                return (
+                  <div class="rounded-2xl border border-white/70 bg-white/55 p-5 text-center backdrop-blur-md">
+                    <div
+                      class="js-counter font-serif text-[28px] font-bold text-brand"
+                      data-target={num}
+                      data-suffix={suffix}
+                    >
+                      0{suffix}
+                    </div>
+                    <div class="text-[13px] font-semibold text-[#5C6B45]">
+                      {t.label}
+                    </div>
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+        <div
+          class="relative flex aspect-16/11 items-center justify-center overflow-hidden rounded-[20px]"
+        >
+          <video
+            src="https://videos.pexels.com/video-files/6773475/6773475-uhd_2560_1440_30fps.mp4"
+            poster="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="absolute inset-0 h-full w-full object-cover"></video>
+          <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+      </div>
+    </section>
+
+    <CtaBanner
+      heading="Trusted by more than 5000+ happy people"
+      body="Our projects are fully tested, background checked, license validated and insured with a 100% satisfaction guarantee."
+      ctaLabel="Unlock Your Business Potential"
+      ctaHref="/contact-us"
+    />
+
+    <!-- CLIENTS -->
+    <section class="mx-auto max-w-300 px-12 py-20">
+      <div class="mb-10 text-center">
+        <h2 class="m-0 font-serif text-[26px] text-brand-dark">Our Clients</h2>
+      </div>
+      <div
+        class="overflow-hidden mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+      >
+        <div
+          class="flex w-max animate-marquee gap-5 hover:[animation-play-state:paused]"
+        >
+          {
+            [...clients, ...clients].map((c) => (
+              <div class="flex h-16 w-56 shrink-0 items-center justify-center rounded-xl bg-[#F1ECDD] px-6">
+                <img
+                  src={`/images/clients/c${c}.png`}
+                  alt=""
+                  class="max-h-10 max-w-full object-contain"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</BaseLayout>

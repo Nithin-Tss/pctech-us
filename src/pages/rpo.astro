@@ -1,0 +1,34 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'Dedicated Recruiters',
+    desc: 'Embed experienced recruiters into your hiring process to source, screen, and shortlist candidates who align with your business goals and culture.',
+    icon: 'user-search',
+  },
+  {
+    title: 'Scalable Volume',
+    desc: 'Scale your recruitment efforts up or down as hiring needs evolve. Our flexible RPO solutions help you meet changing workforce demands efficiently.',
+    icon: 'resize',
+  },
+  {
+    title: 'Employer Branding',
+    desc: 'Strengthen your employer brand and create a positive candidate experience throughout the recruitment journey, from initial engagement to onboarding.',
+    icon: 'badge',
+  },
+  {
+    title: 'Reporting & Analytics',
+    desc: 'Gain complete visibility into your hiring pipeline with data-driven insights, recruitment forecasting, and regular performance reporting.',
+    icon: 'bar-chart',
+  },
+];
+---
+
+<ServicePage
+  title="RPO"
+  tagline="Our RPO solutions combine industry expertise and proven recruitment strategies to help businesses hire smarter, faster, and more efficiently."
+  intro="Our recruitment process outsourcing model embeds our team into yours, giving you dedicated sourcing and screening capacity that flexes with hiring demand without the cost of building it in house."
+  heroImage="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&q=80"
+  features={features}
+/>

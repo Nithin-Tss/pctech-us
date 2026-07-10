@@ -1,0 +1,34 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'ITSM Implementation',
+    desc: 'Deploy ServiceNow solutions customized to your business needs, including incident, problem, and change management. From design and configuration to testing and deployment, we ensure a seamless implementation experience.',
+    icon: 'clipboard',
+  },
+  {
+    title: 'Workflow Automation',
+    desc: 'Automate approvals, requests, and cross-functional processes to improve efficiency and reduce manual effort. Our solutions help organizations streamline operations and enhance productivity across departments.',
+    icon: 'workflow',
+  },
+  {
+    title: 'Integrations',
+    desc: 'Connect ServiceNow with your existing applications and technology ecosystem to enable seamless data flow and unified business operations.',
+    icon: 'chain-link',
+  },
+  {
+    title: 'Platform Support',
+    desc: 'Maximize the value of your ServiceNow investment with ongoing administration, enhancements, and expert support. Our team provides continuous optimization to ensure your platform evolves with your business needs.',
+    icon: 'headset',
+  },
+];
+---
+
+<ServicePage
+  title="ServiceNow"
+  tagline="ServiceNow implementation and support for IT, HR, and customer service workflows."
+  intro="Transform your IT operations with intelligent ServiceNow solutions designed to streamline workflows, improve service delivery, and accelerate digital transformation. Our certified ServiceNow experts help organizations optimize processes, automate tasks, and create connected experiences through tailored implementations and ongoing support."
+  heroImage="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80"
+  features={features}
+/>

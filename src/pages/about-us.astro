@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const values = [
+  {
+    mono: '01',
+    name: 'Integrity',
+    desc: 'We build trusted partnerships through integrity, transparency, and respect.',
+  },
+  {
+    mono: '02',
+    name: 'Partnership',
+    desc: 'We foster collaboration and inclusion, empowering everyone to contribute their best.',
+  },
+  {
+    mono: '03',
+    name: 'Expertise',
+    desc: 'We drive innovation and continuous improvement to deliver transformative solutions.',
+  },
+  {
+    mono: '04',
+    name: 'Accountability',
+    desc: 'Excellence drives every project, every solution, and every result.',
+  },
+];
+
+const team = [
+  { name: 'Patricia Owens', role: 'Chief Executive Officer', img: '#' },
+  { name: 'Carlos Reyes', role: 'Chief Technology Officer', img: '#' },
+  { name: 'Maya Lindqvist', role: 'VP of Staffing', img: '#' },
+];
+---
+
+<BaseLayout
+  title="About Us"
+  description="Long-term relationships are at the heart of what we do. From day one, our success has been measured by yours."
+>
+  <div class="bg-cream font-sans text-ink">
+    <Header />
+
+    <PageHero
+      eyebrow="About Us"
+      title="Connecting Talent, Fueling Growth"
+      tagline="Long-term relationships are the key, and the results are clear — since day one, our only business has been your success."
+      breadcrumbLabel="About Us"
+    />
+
+    <!-- STORY -->
+    <section
+      class="mx-auto grid max-w-300 grid-cols-[0.9fr_1.1fr] items-center gap-16 px-12 py-25"
+    >
+      <div class="relative aspect-4/5 overflow-hidden rounded-[20px]">
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80"
+          alt="P & C Technology Consulting team"
+          class="block h-full w-full object-cover"
+        />
+      </div>
+      <div>
+        <div
+          class="mb-2.5 text-[16px] font-bold tracking-widest text-brand uppercase"
+        >
+          Our Story
+        </div>
+        <h2 class="mt-0 mb-5 font-serif text-[34px] text-brand-dark">
+          Built on partnership, not just placements
+        </h2>
+        <p class="mt-0 mb-5 leading-loose text-ink-muted">
+          P &amp; C Technology Consulting is a leading IT solutions provider
+          with over 5 years of experience. We leverage cutting-edge technology
+          and a team of professionals to deliver innovative solutions that drive
+          efficiency, growth, and success in Commercial and Government sectors.
+        </p>
+        <p class="mt-0 mb-7 leading-loose text-ink-muted">
+          We pledge delivery of the best, most efficient staffing and consulting
+          services to solve our clients' dynamic technology challenges. As
+          partners on your projects, your success is our only business.
+        </p>
+        <div class="flex flex-wrap gap-3.5">
+          <a
+            href="/solutions"
+            class="rounded-full bg-brand px-6.5 py-3 text-sm font-bold text-cream! no-underline"
+          >
+            Our Portfolio
+          </a>
+          <a
+            href="/contact-us"
+            class="rounded-full border-[1.5px] border-brand px-6.5 py-3 text-sm font-bold text-brand! no-underline"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="bg-[#F1ECDD] px-12 py-25">
+      <div class="mx-auto max-w-300">
+        <div class="mx-auto mb-14 max-w-160 text-center">
+          <div
+            class="mb-2.5 text-[16px] font-bold tracking-widest text-brand uppercase"
+          >
+            What Drives Us
+          </div>
+          <h2 class="mt-0 mb-4 font-serif text-[34px] text-brand-dark">
+            Our Values
+          </h2>
+        </div>
+        <div class="grid grid-cols-4 gap-6">
+          {
+            values.map((v) => (
+              <div class="rounded-2xl border border-white/70 bg-white/50 p-7 backdrop-blur-lg">
+                <div class="mb-4.5 flex h-11 w-11 items-center justify-center rounded-xl bg-[#E4EBD6] font-mono text-xs font-bold text-brand">
+                  {v.mono}
+                </div>
+                <h3 class="mt-0 mb-2 font-serif text-[17px] text-brand-dark">
+                  {v.name}
+                </h3>
+                <p class="m-0 leading-relaxed text-ink-muted">{v.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="mx-auto max-w-300 px-12 py-25">
+      <div class="mx-auto mb-14 max-w-150 text-center">
+        <div
+          class="mb-2.5 text-[13px] font-bold tracking-widest text-brand uppercase"
+        >
+          The People Behind PCTC
+        </div>
+        <h2 class="m-0 font-serif text-[34px] text-brand-dark">
+          Leadership Team
+        </h2>
+      </div>
+      <div class="grid grid-cols-3 gap-6">
+        {
+          team.map((member) => (
+            <div class="overflow-hidden rounded-[20px] bg-[#F1ECDD]">
+              <div class="aspect-4/5 overflow-hidden">
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  class="block h-full w-full object-cover"
+                />
+              </div>
+              <div class="p-5.5">
+                <h3 class="mt-0 mb-1 font-serif text-[17px] text-brand-dark">
+                  {member.name}
+                </h3>
+                <p class="m-0 text-[16px] font-semibold tracking-wide text-brand uppercase">
+                  {member.role}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <CtaBanner
+      heading="Let's build something together"
+      body="Whether you need talent, technology, or both — our team is ready to help."
+      ctaLabel="Contact Us"
+      ctaHref="/contact-us"
+    />
+
+    <Footer />
+  </div>
+</BaseLayout>

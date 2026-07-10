@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+@theme {
+  --font-sans: 'Google Sans', sans-serif;
+  --color-brand-dark: #1d3701;
+  --color-brand: #2b4d01;
+  --color-brand-stripe: #24400a;
+  --color-cream: #faf8f1;
+  --color-cream-alt: #edead9;
+  --color-sage: #c9d9ae;
+  --color-sage-dark: #a9bc8a;
+  --color-sage-muted: #8aa067;
+  --color-ink: #211f1a;
+  --color-ink-muted: #4a483f;
+  --color-ink-light: #5c5a52;
+  --color-mist: #e4e9d6;
+
+  --animate-marquee: marquee 28s linear infinite;
+
+  --font-size-base: 16px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  font-size: var(--font-size-base);
+}

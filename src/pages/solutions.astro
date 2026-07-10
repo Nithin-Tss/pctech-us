@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const cases = [
+  {
+    name: 'Fleet Management Modernization',
+    industry: 'Automotive',
+    img: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=800&q=80',
+    blurb:
+      'Rebuilt a legacy fleet-tracking system on a modern cloud stack, cutting downtime by 40%.',
+  },
+  {
+    name: 'Patient Intake Platform',
+    industry: 'Healthcare',
+    img: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?w=800&q=80',
+    blurb:
+      'Designed and delivered a HIPAA-compliant intake system used across 12 clinics.',
+  },
+  {
+    name: 'Plant Floor Analytics',
+    industry: 'Manufacturing',
+    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80',
+    blurb:
+      'Built real-time dashboards giving plant managers visibility into line performance.',
+  },
+  {
+    name: 'Citizen Services Portal',
+    industry: 'Government',
+    img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80',
+    blurb:
+      'Modernized a public-facing services portal, reducing processing time by half.',
+  },
+];
+---
+
+<BaseLayout
+  title="Solutions"
+  description="A sample of the work we've done for clients across manufacturing, healthcare, automotive, and government."
+>
+  <div class="bg-cream font-sans text-ink">
+    <Header />
+
+    <PageHero
+      eyebrow="Our Portfolio"
+      title="Solutions we've delivered"
+      tagline="A sample of the work we've done for clients across manufacturing, healthcare, automotive, and government."
+      breadcrumbLabel="Solutions"
+    />
+
+    <!-- CASE STUDIES -->
+    <section class="mx-auto max-w-300 px-12 py-25">
+      <div class="grid grid-cols-2 gap-8">
+        {
+          cases.map((c) => (
+            <div class="overflow-hidden rounded-[20px] bg-[#F1ECDD]">
+              <div class="aspect-16/10 overflow-hidden">
+                <img
+                  src={c.img}
+                  alt={c.name}
+                  class="block h-full w-full object-cover"
+                />
+              </div>
+              <div class="p-8">
+                <div class="mb-2.5 text-xs font-bold tracking-wide text-brand uppercase">
+                  {c.industry}
+                </div>
+                <h3 class="mt-0 mb-2.5 font-serif text-[21px] text-brand-dark">
+                  {c.name}
+                </h3>
+                <p class="m-0 leading-relaxed text-ink-muted">{c.blurb}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <CtaBanner
+      heading="Have a project in mind?"
+      body="Tell us what you're trying to solve — we'll tell you how we'd approach it."
+      ctaLabel="Contact Us"
+      ctaHref="/contact-us"
+    />
+
+    <Footer />
+  </div>
+</BaseLayout>

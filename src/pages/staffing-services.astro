@@ -1,0 +1,33 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'Contract Staffing',
+    desc: 'Quickly scale your workforce with skilled professionals for short-term projects and evolving business needs. Our flexible staffing solutions help maintain productivity without long-term commitments.',
+    icon: 'document-user',
+  },
+  {
+    title: 'Direct Placement',
+    desc: 'Find the right full-time talent through our extensive network and strategic recruitment process. We identify professionals who align with your technical requirements and company culture.',
+    icon: 'user-check',
+  },
+  {
+    title: 'Contract-to-Hire',
+    desc: 'Evaluate candidates on the job before making a permanent hiring decision. This approach reduces hiring risks while ensuring the right fit for your team.',
+    icon: 'arrows-meet',
+  },
+  {
+    title: 'Executive Search',
+    desc: 'Secure experienced leaders for critical roles through our specialized executive search services. We connect businesses with top-tier talent capable of driving long-term success.',
+    icon: 'briefcase-search',
+  },
+];
+---
+
+<ServicePage
+  title="Staffing Services"
+  tagline="Finding the right talent for your organization can be complex and time-consuming. Our recruitment solutions simplify the process by connecting you with skilled professionals who align with your business goals."
+  intro="From contract to hire to direct placement, we source, vet, and deliver technology professionals who fit your team and your timeline. Our recruiters specialize in IT roles, so every candidate we send is already screened for the skills you need."
+  features={features}
+/>

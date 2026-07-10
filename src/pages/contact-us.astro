@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Reach out and a member of our team will get back to you within one business day."
+>
+  <div class="bg-cream font-sans text-ink">
+    <Header />
+
+    <PageHero
+      eyebrow="Get In Touch"
+      title="Let's talk about your project"
+      tagline="Reach out and a member of our team will get back to you within one business day."
+      breadcrumbLabel="Contact Us"
+    />
+
+    <!-- FORM + INFO -->
+    <section
+      class="mx-auto grid max-w-300 grid-cols-[1.2fr_0.8fr] items-start gap-14 px-12 py-25"
+    >
+      <div
+        class="rounded-[22px] border border-white/70 bg-white/55 p-10 shadow-[0_8px_28px_rgba(43,77,1,0.08)] backdrop-blur-xl"
+      >
+        <div id="contact-success" class="hidden py-10 text-center">
+          <div
+            class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#E4EBD6] text-2xl text-brand"
+          >
+            ✓
+          </div>
+          <h3 class="mt-0 mb-2.5 font-serif text-[22px] text-brand-dark">
+            Thanks — message sent
+          </h3>
+          <p class="m-0 text-ink-muted">
+            We'll be in touch within one business day.
+          </p>
+        </div>
+
+        <form id="contact-form">
+          <div class="mb-5 grid grid-cols-2 gap-5">
+            <div>
+              <label
+                class="mb-2 block text-[13px] font-semibold text-brand-dark"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                required
+                class="box-border w-full rounded-[10px] border border-brand/20 bg-cream px-4 py-3.5 text-sm focus:outline-2 focus:outline-brand"
+              />
+            </div>
+            <div>
+              <label
+                class="mb-2 block text-[13px] font-semibold text-brand-dark"
+                >Email</label
+              >
+              <input
+                type="email"
+                required
+                class="box-border w-full rounded-[10px] border border-brand/20 bg-cream px-4 py-3.5 text-sm focus:outline-2 focus:outline-brand"
+              />
+            </div>
+          </div>
+          <div class="mb-5">
+            <label class="mb-2 block text-[13px] font-semibold text-brand-dark"
+              >Company</label
+            >
+            <input
+              type="text"
+              class="box-border w-full rounded-[10px] border border-brand/20 bg-cream px-4 py-3.5 text-sm focus:outline-2 focus:outline-brand"
+            />
+          </div>
+          <div class="mb-7">
+            <label class="mb-2 block text-[13px] font-semibold text-brand-dark"
+              >How can we help?</label
+            >
+            <textarea
+              rows="5"
+              required
+              class="box-border w-full resize-y rounded-[10px] border border-brand/20 bg-cream px-4 py-3.5 text-sm focus:outline-2 focus:outline-brand"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="cursor-pointer rounded-full border-0 bg-brand px-8 py-3.5 font-sans text-sm font-bold text-cream!"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <div class="rounded-[20px] bg-brand-dark p-8 text-cream">
+          <h3 class="mt-0 mb-5 font-serif text-[18px]">Contact Information</h3>
+          <div class="flex flex-col gap-4 text-sm leading-relaxed text-sage">
+            <div>
+              2695 Villa Creek Drive, Farmers Branch, Texas 75234, United States
+            </div>
+            <a href="mailto:info@pctech-net.com" class="text-sage!"
+              >info@pctech-net.com</a
+            >
+            <div>+1 919 579 1899</div>
+          </div>
+        </div>
+        <div
+          class="flex aspect-4/3 items-center justify-center overflow-hidden rounded-[20px]"
+          style="background: repeating-linear-gradient(135deg, #E4EBD6, #E4EBD6 14px, #DCE6C9 14px, #DCE6C9 28px);"
+        >
+          <div class="font-mono text-xs text-[#5C6B45]">map embed</div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('contact-success');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.classList.add('hidden');
+    success?.classList.remove('hidden');
+  });
+</script>

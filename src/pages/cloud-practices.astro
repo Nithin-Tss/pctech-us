@@ -1,0 +1,34 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'Cloud Migration',
+    desc: 'Seamlessly move your applications and workloads to the cloud with minimal disruption. We create tailored migration strategies that improve flexibility, security, and performance.',
+    icon: 'cloud-migration',
+  },
+  {
+    title: 'Architecture & Design',
+    desc: 'Build secure and scalable cloud infrastructures designed to support your growth. Our experts develop cloud architectures that align with your business goals and long-term vision.',
+    icon: 'layers',
+  },
+  {
+    title: 'Cost Optimization',
+    desc: 'Maximize cloud value by optimizing resources and reducing unnecessary expenses. We help you improve efficiency, control costs, and achieve greater ROI.',
+    icon: 'gauge',
+  },
+  {
+    title: 'Managed Operations',
+    desc: 'Ensure reliable cloud performance with continuous monitoring, maintenance, and support. Our managed services keep your cloud environment secure, resilient, and running smoothly.',
+    icon: 'gear',
+  },
+];
+---
+
+<ServicePage
+  title="Cloud Practices"
+  tagline="Unlock the full potential of cloud computing with intelligent solutions designed to modernize your infrastructure, enhance agility, and accelerate business growth."
+  intro="We help organizations plan, migrate, and operate in the cloud — reducing infrastructure overhead while improving scalability and resilience. Our engineers work across the major providers to design architectures suited to your workload."
+  heroImage="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80"
+  features={features}
+/>

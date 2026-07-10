@@ -1,0 +1,34 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'Process Automation',
+    desc: 'Streamline operations by replacing manual workflows with intelligent automation. We help organizations improve efficiency, reduce errors, and accelerate business outcomes.',
+    icon: 'workflow',
+  },
+  {
+    title: 'Legacy Modernization',
+    desc: 'Transform outdated systems into scalable, modern platforms that support innovation, improve performance, and enable long-term growth.',
+    icon: 'refresh',
+  },
+  {
+    title: 'Change Management',
+    desc: 'Drive successful adoption with structured change management, training, and ongoing support that empower teams to embrace new technologies.',
+    icon: 'users-transition',
+  },
+  {
+    title: 'Technology Strategy',
+    desc: 'Align your technology roadmap with business goals through data-driven strategies, industry expertise, and a phased approach to innovation and growth.',
+    icon: 'compass',
+  },
+];
+---
+
+<ServicePage
+  title="Digital Transformation"
+  tagline="Transform the way you operate with innovative digital solutions that streamline processes, enhance customer experiences, and drive long-term success."
+  intro="We partner with organizations to modernize legacy processes, automate manual workflows, and adopt the technology that lets teams move faster. Every engagement starts with understanding how your business actually runs."
+  heroImage="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80"
+  features={features}
+/>

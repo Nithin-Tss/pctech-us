@@ -1,0 +1,34 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'SAP Implementation',
+    desc: 'Configure core modules around your existing processes.',
+    icon: 'rocket',
+  },
+  {
+    title: 'S/4HANA Migration',
+    desc: 'Move from ECC to S/4HANA with a clear, phased plan.',
+    icon: 'db-migrate',
+  },
+  {
+    title: 'Custom Development',
+    desc: 'ABAP development and integrations for unique requirements.',
+    icon: 'code',
+  },
+  {
+    title: 'Application Support',
+    desc: 'Ongoing support to keep SAP systems running smoothly.',
+    icon: 'headset',
+  },
+];
+---
+
+<ServicePage
+  title="SAP"
+  tagline="SAP implementation, support, and integration for growing enterprises."
+  intro="We help organizations plan and execute SAP implementations and upgrades, and keep systems running reliably with dedicated ongoing support."
+  heroImage="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80"
+  features={features}
+/>

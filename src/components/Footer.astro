@@ -1,0 +1,96 @@
+---
+const socials = ['in', 'x', 'fb'];
+
+const services = [
+  { name: 'IT Development', href: '/it-development' },
+  { name: 'Staffing Services', href: '/staffing-services' },
+  { name: 'SAP', href: '/sap' },
+  { name: 'Cloud Practices', href: '/cloud-practices' },
+  { name: 'Digital Transformation', href: '/digital-transformation' },
+  { name: 'Data & Analytics', href: '/data-analytics' },
+  { name: 'Salesforce', href: '/salesforce' },
+  { name: 'ServiceNow', href: '/servicenow' },
+];
+
+const links = [
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about-us' },
+  { name: 'Solutions', href: '/solutions' },
+  { name: 'Careers', href: '/careers' },
+  { name: 'Contact Us', href: '/contact-us' },
+];
+---
+
+<footer
+  class="bg-brand-dark font-sans text-sage [&_a]:text-sage! [&_a]:no-underline [&_a:hover]:text-cream!"
+>
+  <div
+    class="mx-auto grid max-w-300 grid-cols-[1.3fr_1fr_1fr_1fr] gap-10 px-12 pt-16 pb-8"
+  >
+    <div>
+      <div class="mb-4 flex items-center gap-3">
+        <div
+          class="flex h-10.5 w-10.5 items-center justify-center rounded-[10px] bg-cream-alt font-mono text-sm font-bold text-brand-dark"
+        >
+          P&C
+        </div>
+        <div class="font-serif text-[15px] font-semibold text-cream!">
+          P &amp; C Technology<br />Consulting
+        </div>
+      </div>
+      <p class="max-w-65 leading-relaxed text-sage-dark">
+        Connecting Talent, Fueling Growth.
+      </p>
+    </div>
+
+    <div>
+      <div class="mb-4.5 font-serif text-base font-semibold text-cream!">
+        Get In Touch
+      </div>
+      <div class="flex flex-col gap-3 text-sm leading-relaxed">
+        <div>
+          2695 Villa Creek Drive, Farmers Branch, Texas 75234, United States
+        </div>
+        <a href="mailto:info@pctech-net.com">info@pctech-net.com</a>
+        <div>+1 919 579 1899</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-4.5 font-serif text-base font-semibold text-cream!">
+        Services
+      </div>
+      <div class="flex flex-col gap-2.5 text-sm">
+        {services.map((svc) => <a href={svc.href}>{svc.name}</a>)}
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-4.5 font-serif text-base font-semibold text-cream!">
+        Useful Links
+      </div>
+      <div class="flex flex-col gap-2.5 text-sm">
+        {links.map((l) => <a href={l.href}>{l.name}</a>)}
+      </div>
+      <div class="mt-5 flex gap-2">
+        {
+          socials.map((s) => (
+            <a
+              href="#"
+              title={s}
+              class="flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white/10 font-mono text-[10px]"
+            >
+              {s}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="border-t border-white/12 px-12 py-5 text-center text-[13px] text-sage-muted"
+  >
+    Copyright © 2026 P &amp; C Technology Consulting. All rights reserved.
+  </div>
+</footer>

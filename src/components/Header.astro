@@ -1,0 +1,125 @@
+---
+const socials = ['in', 'x', 'fb'];
+
+const services = [
+  { name: 'IT Development', href: '/it-development' },
+  { name: 'Staffing Services', href: '/staffing-services' },
+  { name: 'Cloud Practices', href: '/cloud-practices' },
+  { name: 'Digital Transformation', href: '/digital-transformation' },
+  { name: 'Data & Analytics', href: '/data-analytics' },
+  { name: 'RPO', href: '/rpo' },
+];
+
+const platforms = [
+  { name: 'Salesforce', href: '/salesforce' },
+  { name: 'ServiceNow', href: '/servicenow' },
+  { name: 'Oracle', href: '/oracle' },
+  { name: 'SAP', href: '/sap' },
+];
+---
+
+<div
+  class="sticky top-0 z-50 font-sans [&_a]:text-brand [&_a]:no-underline [&_a:hover]:text-brand-dark"
+>
+  <div
+    class="flex flex-wrap items-center justify-between gap-2 bg-brand-dark px-12 py-2 text-[13px] text-cream-alt"
+  >
+    <div class="tracking-wide opacity-85">
+      Connecting Talent, Fueling Growth
+    </div>
+    <div class="flex flex-wrap items-center gap-6">
+      <a href="mailto:info@pctech-net.com" class="text-cream-alt!"
+        >info@pctech-net.com</a
+      >
+      <span class="text-cream-alt">+1 919 579 1899</span>
+      <div class="flex gap-2">
+        {
+          socials.map((s) => (
+            <a
+              href="#"
+              title={s}
+              class="flex h-6.5 w-6.5 items-center justify-center rounded-full bg-white/15 font-mono text-[10px] text-cream-alt!"
+            >
+              {s}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flex items-center justify-between gap-6 border-b border-brand/15 bg-cream/70 px-12 py-3.5 backdrop-blur-xl"
+  >
+    <a href="/" class="flex items-center gap-3">
+      <img
+        src="/images/logo.svg"
+        alt="P & C Technology Consulting"
+        width="64"
+        height="64"
+        class="h-11.5 w-11.5 object-contain"
+      />
+      <div
+        class="font-serif text-[16px] leading-tight font-semibold text-brand-dark"
+      >
+        P &amp; C Technology<br />Consulting
+      </div>
+    </a>
+
+    <nav class="flex items-center gap-8">
+      <a href="/" class="text-[15px] font-semibold text-ink!">Home</a>
+      <a href="/about-us" class="text-[15px] font-semibold text-ink!"
+        >About Us</a
+      >
+
+      <div class="group relative -mb-5.5 pb-5.5">
+        <span
+          class="inline-flex cursor-pointer items-center gap-1 text-[15px] font-semibold text-ink"
+        >
+          Services <span class="text-[10px]">▾</span>
+        </span>
+        <div
+          class="invisible absolute top-full -left-4 grid w-120 grid-cols-2 gap-1 rounded-2xl border border-white/70 bg-white/65 p-4 opacity-0 shadow-[0_20px_48px_rgba(43,77,1,0.18)] backdrop-blur-2xl transition-opacity duration-150 group-hover:visible group-hover:opacity-100"
+        >
+          {
+            services.map((svc) => (
+              <a
+                href={svc.href}
+                class="rounded-[10px] px-3 py-2.5 text-sm font-medium text-ink! hover:bg-brand/5"
+              >
+                {svc.name}
+              </a>
+            ))
+          }
+          <div class="col-span-2 my-1.5 h-px bg-brand/15"></div>
+          <div
+            class="col-span-2 px-3 text-[11px] font-semibold tracking-wider text-ink-light uppercase"
+          >
+            Platforms
+          </div>
+          {
+            platforms.map((p) => (
+              <a
+                href={p.href}
+                class="rounded-[10px] px-3 py-2.5 text-sm font-medium text-ink! hover:bg-brand/5"
+              >
+                {p.name}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <a href="/solutions" class="text-[15px] font-semibold text-ink!"
+        >Solutions</a
+      >
+      <a href="/careers" class="text-[15px] font-semibold text-ink!">Careers</a>
+      <a
+        href="/contact-us"
+        class="rounded-full bg-brand px-5.5 py-2.5 text-sm font-semibold text-cream! transition-colors hover:bg-brand-dark"
+      >
+        Contact Us
+      </a>
+    </nav>
+  </div>
+</div>

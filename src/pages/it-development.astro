@@ -1,0 +1,43 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const features = [
+  {
+    title: 'Custom Software Development',
+    desc: 'Build secure and scalable software tailored to your business needs. Our solutions streamline operations, boost productivity, and support long-term growth.',
+    icon: 'code',
+  },
+  {
+    title: 'Web & Mobile Engineering',
+    desc: 'Develop responsive websites and feature-rich mobile applications that deliver seamless experiences across all devices and platforms.',
+    icon: 'devices',
+  },
+  {
+    title: 'Legacy Modernization',
+    desc: 'Upgrade outdated systems with modern technologies to improve performance, enhance security, and ensure future readiness.',
+    icon: 'refresh',
+  },
+  {
+    title: 'API & Systems Integration',
+    desc: 'Integrate applications, platforms, and data to streamline workflows and enhance business operations.',
+    icon: 'plug',
+  },
+  {
+    title: 'QA & Test Automation',
+    desc: 'Ensure software quality with comprehensive testing and automation, enabling faster releases and reliable performance.',
+    icon: 'shield-check',
+  },
+  {
+    title: 'Ongoing Support & Maintenance',
+    desc: 'Keep your systems secure and optimized with continuous support, proactive maintenance, and transparent communication.',
+    icon: 'headset',
+  },
+];
+---
+
+<ServicePage
+  title="IT Development"
+  tagline="Our IT development services empower businesses with reliable, scalable, and modern software solutions that drive innovation, improve efficiency, and support long-term growth."
+  intro="Whether you’re looking for developers with expertise in web development, mobile app development, or any other area of software development, we’ve got you covered. Our engineers partner closely with your team to design, build, and support solutions that fit the way you work from greenfield builds to modernizing legacy systems."
+  features={features}
+/>
