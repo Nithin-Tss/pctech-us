@@ -1,0 +1,44 @@
+---
+import IndustryPage from '../components/IndustryPage.astro';
+
+const features = [
+  {
+    title: 'Streamlining Operations',
+    desc: 'Reduce production waste, improve process efficiency, and optimize resource utilization with our manufacturing execution systems (MES) and enterprise resource planning (ERP) solutions.',
+    icon: 'gear',
+  },
+  {
+    title: 'Enhanced Supply Chain Visibility',
+    desc: 'Gain real-time insights into your supply chain with our cloud-based solutions, enabling proactive inventory management and better planning.',
+    icon: 'chain-link',
+  },
+  {
+    title: 'Data-Driven Decision Making',
+    desc: 'Leverage our advanced analytics tools to transform raw data into actionable insights, empowering you to optimize production processes, maintenance schedules, and resource allocation.',
+    icon: 'bar-chart',
+  },
+  {
+    title: 'Cloud Solutions',
+    desc: 'Modernize your IT infrastructure with cloud agility and scalability, giving your team access to advanced manufacturing applications on demand.',
+    icon: 'cloud-migration',
+  },
+  {
+    title: 'IoT & Industrial Automation',
+    desc: 'Harness Internet of Things technology and automation to streamline repetitive operations, enhance data collection, and monitor real-time operational performance.',
+    icon: 'plug',
+  },
+  {
+    title: '3D Printing & Additive Manufacturing',
+    desc: 'Explore 3D printing applications for prototype development, customization capabilities, and supply-on-demand manufacturing.',
+    icon: 'layers',
+  },
+];
+---
+
+<IndustryPage
+  title="Manufacturing"
+  tagline="Streamline operations and boost efficiency. Cloud, data, and automation for smarter manufacturing."
+  intro="P & C Technology Consulting helps manufacturers modernize operations from the shop floor to the supply chain. Through MES and ERP implementations, cloud migration, IoT-enabled automation, and advanced analytics, we help you reduce waste, improve quality, and make faster, data-driven decisions across your manufacturing operations."
+  heroImage="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1400&q=80"
+  features={features}
+/>

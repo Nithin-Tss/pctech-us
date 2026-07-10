@@ -1,0 +1,44 @@
+---
+import IndustryPage from '../components/IndustryPage.astro';
+
+const features = [
+  {
+    title: 'Clinical Care Transformation',
+    desc: 'Improve patient care coordination, automate routine tasks, and empower your clinical staff with user-friendly solutions.',
+    icon: 'headset',
+  },
+  {
+    title: 'Revenue Cycle Management',
+    desc: 'Streamline billing and claims processes with integrated solutions for real-time submissions, accurate coding, and comprehensive reporting.',
+    icon: 'bar-chart',
+  },
+  {
+    title: 'Population Health Management',
+    desc: 'Gain valuable insights into patient populations, identify at-risk individuals, and improve preventative care strategies.',
+    icon: 'trending-up',
+  },
+  {
+    title: 'Electronic Health Records',
+    desc: 'Implement a robust and secure EHR/EMR system to manage patient data, facilitate care coordination, and improve clinical decision-making.',
+    icon: 'document-user',
+  },
+  {
+    title: 'Practice Management Software',
+    desc: 'Optimize administrative tasks, streamline workflows, and enhance patient scheduling with user-friendly practice management solutions.',
+    icon: 'clipboard',
+  },
+  {
+    title: 'Telehealth & Remote Monitoring',
+    desc: 'Offer convenient, accessible care options for patients while improving chronic disease management with remote monitoring tools.',
+    icon: 'devices',
+  },
+];
+---
+
+<IndustryPage
+  title="Healthcare"
+  tagline="Improve patient care, streamline workflows, and ensure data privacy with secure healthcare IT solutions."
+  intro="P & C Technology Consulting helps healthcare organizations modernize clinical and administrative operations while safeguarding patient data. From EHR implementations and revenue cycle management to telehealth and population health analytics, we deliver secure, compliant solutions that improve care delivery and operational efficiency."
+  heroImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1400&q=80"
+  features={features}
+/>

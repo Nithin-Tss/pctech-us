@@ -1,0 +1,44 @@
+---
+import IndustryPage from '../components/IndustryPage.astro';
+
+const features = [
+  {
+    title: 'Supply Chain Management',
+    desc: 'Optimize your supply chain with real-time visibility, inventory management solutions, and data-driven insights for improved efficiency and cost reduction.',
+    icon: 'chain-link',
+  },
+  {
+    title: 'Manufacturing Operations Management',
+    desc: 'Streamline your production processes with robust MES (Manufacturing Execution Systems) solutions, ensuring quality control and on-time delivery.',
+    icon: 'gear',
+  },
+  {
+    title: 'Customer Relationship Management',
+    desc: 'Enhance customer experiences throughout the entire sales and service lifecycle with user-friendly CRM tools.',
+    icon: 'users',
+  },
+  {
+    title: 'Enterprise Resource Planning',
+    desc: 'Implement comprehensive ERP systems to manage inventory, production, sales, and finance across your automotive operations.',
+    icon: 'layers',
+  },
+  {
+    title: 'Manufacturing Execution Systems',
+    desc: 'Improve production efficiency, quality control, and resource utilization on the plant floor with modern MES platforms.',
+    icon: 'workflow',
+  },
+  {
+    title: 'Data Analytics & Business Intelligence',
+    desc: 'Extract insights from your operational data to identify trends and enable faster, data-driven decisions.',
+    icon: 'bar-chart',
+  },
+];
+---
+
+<IndustryPage
+  title="Automotive"
+  tagline="Drive innovation and efficiency across your automotive operations with technology built for the demands of the industry."
+  intro="P & C Technology Consulting partners with automotive manufacturers and suppliers to modernize production, supply chain, and customer operations. From ERP and MES implementations to supply chain visibility and analytics, we help automotive businesses improve quality, reduce costs, and respond faster to changing demand."
+  heroImage="https://images.unsplash.com/photo-1558980664-10ea9f087d31?w=1400&q=80"
+  features={features}
+/>

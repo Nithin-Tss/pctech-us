@@ -77,18 +77,21 @@ const stats = [
 const industries = [
   {
     name: 'Manufacturing',
+    href: '/manufacturing',
     img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=700&q=80',
     blurb:
       'Accelerate manufacturing excellence through cloud, data, and automation technologies that enhance productivity, efficiency, and operational performance.',
   },
   {
     name: 'Automotive',
+    href: '/automotive',
     img: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=700&q=80',
     blurb:
       'Empower your automotive business with intelligent IT solutions that drive innovation, improve efficiency, and enable sustainable growth in a dynamic industry.',
   },
   {
     name: 'Healthcare',
+    href: '/healthcare',
     img: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?w=700&q=80',
     blurb:
       'Transform healthcare delivery with intelligent IT solutions that improve patient care, enhance operational efficiency, and ensure the highest standards of data security.',
@@ -366,7 +369,7 @@ const clients = Array.from({ length: 10 }, (_, i) => i + 1);
     <section class="mx-auto max-w-300 px-12 py-25">
       <div class="mx-auto mb-14 max-w-150 text-center">
         <div
-          class="mb-2.5 text-[13px] font-bold tracking-widest text-brand uppercase"
+          class="mb-2.5 text-[16px] font-bold tracking-widest text-brand uppercase"
         >
           Working With Excellent
         </div>
@@ -375,7 +378,10 @@ const clients = Array.from({ length: 10 }, (_, i) => i + 1);
       <div class="grid grid-cols-3 gap-6">
         {
           industries.map((ind) => (
-            <div class="overflow-hidden rounded-[20px] bg-[#F1ECDD]">
+            <a
+              href={ind.href}
+              class="group block overflow-hidden rounded-[20px] bg-[#F1ECDD] text-inherit! no-underline! transition-transform duration-300 hover:-translate-y-5"
+            >
               <div class="h-50 overflow-hidden">
                 <img
                   src={ind.img}
@@ -384,12 +390,25 @@ const clients = Array.from({ length: 10 }, (_, i) => i + 1);
                 />
               </div>
               <div class="p-6">
-                <h3 class="mt-0 mb-2.5 font-serif text-[18px] text-brand-dark">
+                <h3 class="mt-0 mb-2.5 flex items-center justify-between gap-2 font-serif text-[18px] text-brand-dark">
                   {ind.name}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-4.5 w-4.5 shrink-0 text-brand transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
                 </h3>
                 <p class="m-0 leading-relaxed text-ink-muted">{ind.blurb}</p>
               </div>
-            </div>
+            </a>
           ))
         }
       </div>
