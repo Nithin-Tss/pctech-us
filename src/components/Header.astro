@@ -32,16 +32,15 @@ const platforms = [
   class="sticky top-0 z-50 font-sans [&_a]:text-brand [&_a]:no-underline [&_a:hover]:text-brand-dark"
 >
   <div
-    class="flex flex-wrap items-center justify-between gap-2 bg-brand-dark px-12 py-2 text-[13px] text-cream-alt"
+    class="flex flex-wrap items-center justify-between gap-2 bg-brand-dark px-4 py-2 text-[13px] text-cream-alt sm:px-6 lg:px-12"
   >
-    <div class="tracking-wide opacity-85">
-      Connecting Talent, Fueling Growth
-    </div>
-    <div class="flex flex-wrap items-center gap-6">
-      <a href="mailto:info@pctech-net.com" class="text-cream-alt!"
-        >info@pctech-net.com</a
+    <div class="tracking-wide opacity-85"></div>
+    <div class="flex flex-wrap items-center gap-3 sm:gap-6">
+      <a
+        href="mailto:info@pctech-net.com"
+        class="hidden text-cream-alt! sm:inline">info@pctech-net.com</a
       >
-      <span class="text-cream-alt">+1 919 579 1899</span>
+      <span class="hidden text-cream-alt sm:inline">+1 919 579 1899</span>
       <div class="flex gap-2">
         {
           socials.map((s) => (
@@ -49,9 +48,9 @@ const platforms = [
               href="#"
               title={s.name}
               aria-label={s.name}
-              class={`flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white/15 text-cream-alt! transition-all duration-300 hover:-translate-y-0.5 hover:text-white! hover:shadow-[0_4px_12px_rgba(0,0,0,0.25)] ${s.hoverClass}`}
+              class={`flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-cream-alt! transition-all duration-300 hover:-translate-y-0.5 hover:text-white! hover:shadow-[0_4px_12px_rgba(0,0,0,0.25)] ${s.hoverClass}`}
             >
-              <SocialIcon name={s.name} class="h-4 w-4" />
+              <SocialIcon name={s.name} class="h-4.5 w-4.5" />
             </a>
           ))
         }
@@ -60,24 +59,29 @@ const platforms = [
   </div>
 
   <div
-    class="flex items-center justify-between gap-6 border-b border-brand/15 bg-cream/70 px-12 py-3.5 backdrop-blur-xl"
+    class="flex items-center justify-between gap-4 border-b border-brand/15 bg-cream/70 px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-12 lg:py-3.5"
   >
-    <a href="/" class="flex items-center gap-3">
+    <a href="/" class="flex items-center gap-2.5 sm:gap-3">
       <img
         src="/images/logo.svg"
         alt="P & C Technology Consulting"
-        width="64"
-        height="64"
-        class="h-11.5 w-11.5 object-contain"
+        width="48"
+        height="48"
+        class="h-11 w-11 shrink-0 object-contain lg:h-14 lg:w-14"
       />
-      <div
-        class="font-serif text-[16px] leading-tight font-semibold text-brand-dark"
-      >
-        P &amp; C Technology<br />Consulting
+      <div class="flex flex-col gap-1">
+        <div
+          class="font-serif text-[14px] leading-none font-semibold text-brand-dark sm:text-[16px]"
+        >
+          P &amp; C Technology Consulting
+        </div>
+        <div class="text-[9px] leading-none text-ink-muted sm:text-[10px]">
+          Connecting Talent, Fueling Growth
+        </div>
       </div>
     </a>
 
-    <nav class="flex items-center gap-8">
+    <nav class="hidden items-center gap-8 lg:flex">
       <a href="/" class="text-[15px] font-semibold text-ink!">Home</a>
       <a href="/about-us" class="text-[15px] font-semibold text-ink!"
         >About Us</a
@@ -132,5 +136,129 @@ const platforms = [
         Contact Us
       </a>
     </nav>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-brand-dark lg:hidden"
+    >
+      <svg
+        id="icon-open"
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+      <svg
+        id="icon-close"
+        xmlns="http://www.w3.org/2000/svg"
+        class="hidden h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden max-h-[calc(100vh-4.5rem)] flex-col gap-1 overflow-y-auto border-b border-brand/15 bg-cream px-4 py-4 lg:hidden"
+  >
+    <a
+      href="/"
+      class="rounded-lg px-3 py-2.5 text-[15px] font-semibold text-ink!">Home</a
+    >
+    <a
+      href="/about-us"
+      class="rounded-lg px-3 py-2.5 text-[15px] font-semibold text-ink!"
+      >About Us</a
+    >
+
+    <details class="group">
+      <summary
+        class="flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2.5 text-[15px] font-semibold text-ink [&::-webkit-details-marker]:hidden [&::marker]:hidden"
+      >
+        Services
+        <span class="text-[10px] transition-transform group-open:rotate-180"
+          >▾</span
+        >
+      </summary>
+      <div class="flex flex-col gap-0.5 py-1 pl-3">
+        {
+          services.map((svc) => (
+            <a
+              href={svc.href}
+              class="rounded-lg px-3 py-2 text-sm font-medium text-ink!"
+            >
+              {svc.name}
+            </a>
+          ))
+        }
+        <div
+          class="mt-1 mb-1 px-3 text-[11px] font-semibold tracking-wider text-ink-light uppercase"
+        >
+          Platforms
+        </div>
+        {
+          platforms.map((p) => (
+            <a
+              href={p.href}
+              class="rounded-lg px-3 py-2 text-sm font-medium text-ink!"
+            >
+              {p.name}
+            </a>
+          ))
+        }
+      </div>
+    </details>
+
+    <a
+      href="/solutions"
+      class="rounded-lg px-3 py-2.5 text-[15px] font-semibold text-ink!"
+      >Solutions</a
+    >
+    <a
+      href="/careers"
+      class="rounded-lg px-3 py-2.5 text-[15px] font-semibold text-ink!"
+      >Careers</a
+    >
+    <a
+      href="/contact-us"
+      class="mt-2 rounded-full bg-brand px-5.5 py-3 text-center text-sm font-semibold text-cream! transition-colors hover:bg-brand-dark"
+    >
+      Contact Us
+    </a>
   </div>
 </div>
+
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isHidden = menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', !isHidden);
+    menu?.classList.toggle('flex', isHidden);
+    iconOpen?.classList.toggle('hidden', !isHidden);
+    iconClose?.classList.toggle('hidden', isHidden);
+    btn.setAttribute('aria-expanded', String(Boolean(isHidden)));
+  });
+</script>

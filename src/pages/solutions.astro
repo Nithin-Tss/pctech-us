@@ -11,28 +11,28 @@ const cases = [
     industry: 'Automotive',
     img: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=800&q=80',
     blurb:
-      'Rebuilt a legacy fleet-tracking system on a modern cloud stack, cutting downtime by 40%.',
+      'Modernized and transformed a legacy fleet-tracking system by migrating it to a scalable cloud-based architecture, reducing downtime by 40% and improving overall system reliability and performance.',
   },
   {
     name: 'Patient Intake Platform',
     industry: 'Healthcare',
     img: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?w=800&q=80',
     blurb:
-      'Designed and delivered a HIPAA-compliant intake system used across 12 clinics.',
+      'Designed and implemented a HIPAA-compliant patient intake system that streamlined clinical workflows and was successfully adopted across 12 healthcare facilities.',
   },
   {
     name: 'Plant Floor Analytics',
     industry: 'Manufacturing',
-    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1589793463357-5fb813435467?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     blurb:
-      'Built real-time dashboards giving plant managers visibility into line performance.',
+      'Developed and deployed real-time dashboards that provided plant managers with actionable insights into production line performance, enabling faster decision-making and improved operational efficiency.',
   },
   {
     name: 'Citizen Services Portal',
     industry: 'Government',
     img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80',
     blurb:
-      'Modernized a public-facing services portal, reducing processing time by half.',
+      'Modernized and transformed a public-facing services portal, reducing processing times by 50% while enhancing user experience, accessibility, and operational efficiency.',
   },
 ];
 ---
@@ -52,8 +52,10 @@ const cases = [
     />
 
     <!-- CASE STUDIES -->
-    <section class="mx-auto max-w-300 px-12 py-25">
-      <div class="grid grid-cols-2 gap-8">
+    <section
+      class="mx-auto max-w-300 px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-25"
+    >
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
         {
           cases.map((c) => (
             <div class="overflow-hidden rounded-[20px] bg-[#F1ECDD]">

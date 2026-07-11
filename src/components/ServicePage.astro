@@ -15,6 +15,8 @@ interface Props {
   tagline: string;
   intro: string;
   heroImage?: string;
+  overviewImage?: string;
+  secondaryImage?: string;
   features: Feature[];
 }
 
@@ -22,23 +24,11 @@ const {
   title,
   tagline,
   intro,
-  heroImage = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=80',
+  heroImage = 'https://images.unsplash.com/photo-1593720213428-28a5b9e94613?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  overviewImage = 'https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  secondaryImage = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&q=80',
   features,
 } = Astro.props;
-
-const allServiceDefs = [
-  { name: 'IT Development', href: '/it-development' },
-  { name: 'Staffing Services', href: '/staffing-services' },
-  { name: 'Cloud Practices', href: '/cloud-practices' },
-  { name: 'Digital Transformation', href: '/digital-transformation' },
-  { name: 'Data & Analytics', href: '/data-analytics' },
-  { name: 'RPO', href: '/rpo' },
-];
-
-const allServices = allServiceDefs.map((s) => ({
-  ...s,
-  active: s.name === title,
-}));
 ---
 
 <BaseLayout title={title} description={tagline}>
@@ -46,11 +36,15 @@ const allServices = allServiceDefs.map((s) => ({
     <Header />
 
     <!-- SERVICE HERO -->
-    <section class="relative overflow-hidden px-12 py-18">
-      <div
-        class="absolute inset-0"
-        style="background: repeating-linear-gradient(135deg, #2B4D01, #2B4D01 22px, #24400a 22px, #24400a 44px);"
-      >
+    <section
+      class="relative overflow-hidden px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-18"
+    >
+      <div class="absolute inset-0">
+        <img
+          src={heroImage}
+          alt=""
+          class="absolute inset-0 h-full w-full object-cover"
+        />
       </div>
       <div
         class="absolute inset-0 bg-linear-to-r from-black/55 via-black/30 to-transparent"
@@ -64,14 +58,16 @@ const allServices = allServiceDefs.map((s) => ({
           > / <span class="text-cream">{title}</span>
         </div>
         <div
-          class="max-w-160 rounded-[22px] border border-white/28 bg-white/14 px-11 py-10 backdrop-blur-2xl"
+          class="max-w-160 rounded-[22px] border border-white/28 bg-white/14 px-6 py-7 backdrop-blur-2xl sm:px-11 sm:py-10"
         >
           <div
             class="mb-3 text-xs font-bold tracking-widest text-sage uppercase"
           >
             Service
           </div>
-          <h1 class="mt-0 mb-4 font-serif text-[38px] leading-tight text-cream">
+          <h1
+            class="mt-0 mb-4 font-serif text-[28px] leading-tight text-cream sm:text-[38px]"
+          >
             {title}
           </h1>
           <p class="m-0 leading-relaxed text-mist">{tagline}</p>
@@ -81,114 +77,147 @@ const allServices = allServiceDefs.map((s) => ({
 
     <!-- CONTENT -->
     <section
-      class="mx-auto grid max-w-300 grid-cols-[1.6fr_0.9fr] items-start gap-14 px-12 py-20"
+      class="mx-auto max-w-300 px-4 py-14 sm:px-6 sm:py-16 lg:px-12 lg:py-20"
     >
-      <div>
-        <div class="mb-10 aspect-16/8 overflow-hidden rounded-[20px]">
-          <img
-            src={heroImage}
-            alt={title}
-            class="block h-full w-full object-cover"
-          />
-        </div>
-
-        <h2 class="mt-0 mb-4 font-serif text-[26px] text-brand-dark">
-          Overview
-        </h2>
-        <p class="mt-0 mb-10 leading-loose text-ink-muted">{intro}</p>
-
-        <h2 class="mt-0 mb-6 font-serif text-[22px] text-brand-dark">
-          What we deliver
-        </h2>
-        <div class="mb-4 grid grid-cols-2 gap-5">
-          {
-            features.map((f: Feature) => (
-              <div class="rounded-2xl border border-white/70 bg-white/55 p-6 backdrop-blur-xl">
-                <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#E4EBD6] text-brand">
-                  <FeatureIcon name={f.icon ?? 'layers'} />
-                </div>
-                <h3 class="mt-0 mb-2 font-serif text-[17px] text-brand-dark">
-                  {f.title}
-                </h3>
-                <p class="m-0 leading-relaxed text-ink-muted">{f.desc}</p>
-              </div>
-            ))
-          }
-        </div>
-
-        <!-- OLD "Ready to get started" CTA (kept for easy revert — uncomment to restore)
-        <div class="bg-gradient-to-br from-brand to-brand-dark rounded-[20px] px-10 py-10 text-center">
-          <h3 class="font-serif text-[22px] !text-cream mb-3 mt-0">Ready to get started with {title}?</h3>
-          <p class="text-mist mb-6 mt-0">Let's talk about your project and how we can help.</p>
-          <a
-            href="/contact-us"
-            class="inline-block px-[30px] py-3.5 bg-cream !text-brand-dark rounded-full font-bold text-sm no-underline"
+      <div
+        class="mb-16 flex flex-col gap-10 lg:mb-28 lg:flex-row lg:items-stretch lg:gap-16"
+      >
+        <div class="flex flex-1 flex-col justify-center">
+          <div class="mb-3 flex items-center gap-2.5">
+            <span class="h-px w-8 bg-brand"></span>
+            <span
+              class="text-sm font-bold tracking-widest text-brand uppercase"
+            >
+              Overview
+            </span>
+          </div>
+          <h2
+            class="mt-0 mb-4 font-serif text-[24px] text-brand-dark sm:text-[32px]"
           >
-            Contact Us
-          </a>
+            What {title} means for your business
+          </h2>
+          <p class="m-0 text-base leading-loose text-ink-muted sm:text-lg">
+            {intro}
+          </p>
         </div>
-        -->
+        <div class="relative flex-1">
+          <div
+            class="absolute -inset-4 -z-10 rounded-4xl bg-linear-to-br from-brand/20 to-sage-dark/30 blur-2xl"
+          >
+          </div>
+          <div
+            class="h-full min-h-56 overflow-hidden rounded-[22px] ring-1 ring-black/5 sm:min-h-72"
+          >
+            <img
+              src={overviewImage}
+              alt={title}
+              class="block h-full w-full object-cover"
+            />
+          </div>
+        </div>
       </div>
 
-      <div class="sticky top-6 flex flex-col gap-6">
-        <div
-          class="rounded-[20px] border border-white/70 bg-white/55 p-7 shadow-[0_8px_28px_rgba(43,77,1,0.08)] backdrop-blur-xl"
-        >
-          <h3 class="mt-0 mb-4.5 font-serif text-[17px] text-brand-dark">
-            Our Services
-          </h3>
-          <div class="flex flex-col gap-1">
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-16">
+        <div class="relative flex-[1.35]">
+          <div
+            class="absolute -inset-4 -z-10 rounded-4xl bg-linear-to-br from-sage-dark/25 to-brand/20 blur-2xl"
+          >
+          </div>
+          <div
+            class="h-full min-h-56 overflow-hidden rounded-[22px] ring-1 ring-black/5 sm:min-h-88"
+          >
+            <img
+              src={secondaryImage}
+              alt=""
+              class="block h-full w-full object-cover"
+            />
+          </div>
+        </div>
+        <div class="flex flex-[0.9] flex-col justify-center">
+          <div class="mb-3 flex items-center gap-2.5">
+            <span class="h-px w-8 bg-brand"></span>
+            <span
+              id="deliver"
+              class="text-sm font-bold tracking-widest text-brand uppercase"
+            >
+              Capabilities
+            </span>
+          </div>
+          <h2
+            class="mt-0 mb-6 font-serif text-[22px] text-brand-dark sm:text-[26px]"
+          >
+            What we deliver
+          </h2>
+          <div class="flex flex-col gap-6">
             {
-              allServices.map((s) => (
-                <a
-                  href={s.href}
-                  class={`rounded-[10px] px-3.5 py-3 text-sm font-semibold no-underline ${s.active ? 'text-brand!' : 'text-ink!'}`}
-                >
-                  {s.name}
-                </a>
+              features.map((f: Feature) => (
+                <div class="flex gap-4">
+                  <FeatureIcon
+                    name={f.icon ?? 'badge'}
+                    class="mt-1 h-6 w-6 shrink-0 text-brand"
+                  />
+                  <div>
+                    <h3 class="mt-0 mb-2 font-serif text-[18px] text-brand-dark sm:text-[20px]">
+                      {f.title}
+                    </h3>
+                    <p class="m-0 text-base leading-loose text-ink-muted sm:text-lg">
+                      {f.desc}
+                    </p>
+                  </div>
+                </div>
               ))
             }
           </div>
         </div>
-
-        <!-- OLD sidebar CTA card (kept for easy revert — uncomment to restore, and remove the full-width section below)
-        <div class="bg-brand-dark rounded-[20px] p-7 text-cream">
-          <h3 class="font-serif text-[17px] mb-2.5 mt-0">Have a project in mind?</h3>
-          <p class="text-sage leading-relaxed mb-5 mt-0">
-            Speak with our team about your requirements — no obligation.
-          </p>
-          <a
-            href="/contact-us"
-            class="block text-center px-3 py-3 bg-cream !text-brand-dark rounded-full font-bold text-[13px] no-underline"
-          >
-            Get In Touch
-          </a>
-        </div>
-        -->
       </div>
     </section>
 
     <!-- HAVE A PROJECT IN MIND -->
-    <section class="mx-auto max-w-300 px-12 pb-25">
-      <div class="rounded-[28px] bg-brand-dark px-10 py-16 text-center">
+    <section
+      class="mx-auto max-w-300 px-4 pb-16 sm:px-6 sm:pb-20 lg:px-12 lg:pb-25"
+    >
+      <div
+        class="relative overflow-hidden rounded-4xl bg-brand-dark px-6 py-10 text-center sm:px-10 sm:py-16"
+      >
         <div
-          class="mb-2.5 text-[13px] font-bold tracking-widest text-sage uppercase"
+          class="absolute -top-16 left-1/3 h-72 w-72 animate-float-slow rounded-full bg-sage/20 blur-3xl"
         >
-          Let's Talk
         </div>
-        <h2 class="mt-0 mb-4 font-serif text-[32px] text-cream!">
-          Have a project in mind?
-        </h2>
-        <p class="mx-auto mt-0 mb-7 max-w-120 leading-relaxed text-sage">
-          Tell us about your {title} needs — we'll tell you how we'd approach it,
-          no obligation.
-        </p>
-        <a
-          href="/contact-us"
-          class="inline-block rounded-full bg-cream px-8 py-4 text-sm font-bold text-brand-dark! no-underline"
+        <div
+          class="absolute -right-10 -bottom-20 h-64 w-64 rounded-full bg-brand/40 blur-3xl"
         >
-          Contact Us
-        </a>
+        </div>
+
+        <div class="relative">
+          <div
+            class="mb-2.5 text-[13px] font-bold tracking-widest text-sage uppercase"
+          >
+            Let's Talk
+          </div>
+          <h2
+            class="mt-0 mb-4 font-serif text-[24px] text-cream! sm:text-[32px]"
+          >
+            Have a project in mind?
+          </h2>
+          <p class="mx-auto mt-0 mb-7 max-w-120 leading-relaxed text-sage">
+            Tell us about your {title} needs — we'll tell you how we'd approach it,
+            no obligation.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="/contact-us"
+              class="inline-block rounded-full bg-cream px-8 py-4 text-sm font-bold text-brand-dark! no-underline transition-transform hover:scale-[1.03]"
+            >
+              Contact Us
+            </a>
+            <a
+              href="mailto:info@pctech-net.com"
+              class="inline-flex items-center gap-2 rounded-full border border-white/25 px-8 py-4 text-sm font-bold text-cream! no-underline transition-colors hover:bg-white/10"
+            >
+              info@pctech-net.com
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 

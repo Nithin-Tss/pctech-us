@@ -16,7 +16,9 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative overflow-hidden px-12 py-22">
+<section
+  class="relative overflow-hidden px-4 py-14 sm:px-6 sm:py-18 lg:px-12 lg:py-22"
+>
   <img
     src={bgImage}
     alt=""
@@ -24,9 +26,11 @@ const {
   />
   <div class="absolute inset-0 bg-[rgba(13,22,2,0.72)]"></div>
   <div
-    class="relative mx-auto max-w-180 rounded-3xl border border-white/25 bg-white/12 px-12 py-14 text-center backdrop-blur-xl"
+    class="relative mx-auto max-w-180 rounded-3xl border border-white/25 bg-white/12 px-6 py-10 text-center backdrop-blur-xl sm:px-12 sm:py-14"
   >
-    <h2 class="mt-0 mb-4 font-serif text-[30px] text-cream!">{heading}</h2>
+    <h2 class="mt-0 mb-4 font-serif text-[24px] text-cream! sm:text-[30px]">
+      {heading}
+    </h2>
     <p class="mt-0 mb-7 leading-relaxed text-mist">{body}</p>
     <a
       href={ctaHref}

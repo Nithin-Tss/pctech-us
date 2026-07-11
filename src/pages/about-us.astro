@@ -9,30 +9,31 @@ const values = [
   {
     mono: '01',
     name: 'Integrity',
-    desc: 'We build trusted partnerships through integrity, transparency, and respect.',
+    desc: 'We build trust through honesty, transparency, and accountability, fostering lasting partnerships grounded in integrity and shared success.',
   },
   {
     mono: '02',
-    name: 'Partnership',
-    desc: 'We foster collaboration and inclusion, empowering everyone to contribute their best.',
+    name: 'Respect',
+    desc: 'We value our clients, partners, and team members, fostering a collaborative culture where diverse perspectives are respected and stronger relationships thrive.',
   },
   {
     mono: '03',
-    name: 'Expertise',
-    desc: 'We drive innovation and continuous improvement to deliver transformative solutions.',
+    name: 'Innovation',
+    desc: 'We push boundaries through innovation and creativity, delivering forward-thinking solutions that drive progress, improve efficiency, and create lasting value.',
   },
   {
     mono: '04',
-    name: 'Accountability',
-    desc: 'Excellence drives every project, every solution, and every result.',
+    name: 'Drive',
+    desc: 'We are driven by excellence and a commitment to exceed expectations, delivering exceptional results and lasting value for our clients.',
   },
 ];
 
-const team = [
-  { name: 'Patricia Owens', role: 'Chief Executive Officer', img: '#' },
-  { name: 'Carlos Reyes', role: 'Chief Technology Officer', img: '#' },
-  { name: 'Maya Lindqvist', role: 'VP of Staffing', img: '#' },
-];
+const valueIcons: Record<string, string> = {
+  '01': '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',
+  '02': '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  '03': '<path d="M15 14c.2-1.1.7-2.1 1.5-3a4.5 4.5 0 1 0-7 0c.8.9 1.3 1.9 1.5 3"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+  '04': '<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>',
+};
 ---
 
 <BaseLayout
@@ -51,11 +52,11 @@ const team = [
 
     <!-- STORY -->
     <section
-      class="mx-auto grid max-w-300 grid-cols-[0.9fr_1.1fr] items-center gap-16 px-12 py-25"
+      class="mx-auto grid max-w-300 grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-12 lg:py-25"
     >
       <div class="relative aspect-4/5 overflow-hidden rounded-[20px]">
         <img
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80"
+          src="https://images.unsplash.com/photo-1580894899378-92e56886cd4d?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="P & C Technology Consulting team"
           class="block h-full w-full object-cover"
         />
@@ -66,7 +67,9 @@ const team = [
         >
           Our Story
         </div>
-        <h2 class="mt-0 mb-5 font-serif text-[34px] text-brand-dark">
+        <h2
+          class="mt-0 mb-5 font-serif text-[26px] text-brand-dark sm:text-[34px]"
+        >
           Built on partnership, not just placements
         </h2>
         <p class="mt-0 mb-5 leading-loose text-ink-muted">
@@ -98,7 +101,7 @@ const team = [
     </section>
 
     <!-- VALUES -->
-    <section class="bg-[#F1ECDD] px-12 py-25">
+    <section class="bg-[#F1ECDD] px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-25">
       <div class="mx-auto max-w-300">
         <div class="mx-auto mb-14 max-w-160 text-center">
           <div
@@ -106,16 +109,28 @@ const team = [
           >
             What Drives Us
           </div>
-          <h2 class="mt-0 mb-4 font-serif text-[34px] text-brand-dark">
+          <h2
+            class="mt-0 mb-4 font-serif text-[26px] text-brand-dark sm:text-[34px]"
+          >
             Our Values
           </h2>
         </div>
-        <div class="grid grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {
             values.map((v) => (
-              <div class="rounded-2xl border border-white/70 bg-white/50 p-7 backdrop-blur-lg">
-                <div class="mb-4.5 flex h-11 w-11 items-center justify-center rounded-xl bg-[#E4EBD6] font-mono text-xs font-bold text-brand">
-                  {v.mono}
+              <div class="rounded-2xl border border-[#3b6606] bg-white/70 p-7 shadow-[0_8px_24px_-4px_#0E3B081F] backdrop-blur-lg">
+                <div class="mb-4.5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#2B4D0126] bg-[#E4EBD6] text-brand shadow-[0_4px_12px_-2px_#2B4D0140] transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-brand hover:text-white">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    set:html={valueIcons[v.mono]}
+                  />
                 </div>
                 <h3 class="mt-0 mb-2 font-serif text-[17px] text-brand-dark">
                   {v.name}
@@ -127,44 +142,6 @@ const team = [
         </div>
       </div>
     </section>
-
-    <!-- LEADERSHIP -->
-    <section class="mx-auto max-w-300 px-12 py-25">
-      <div class="mx-auto mb-14 max-w-150 text-center">
-        <div
-          class="mb-2.5 text-[13px] font-bold tracking-widest text-brand uppercase"
-        >
-          The People Behind PCTC
-        </div>
-        <h2 class="m-0 font-serif text-[34px] text-brand-dark">
-          Leadership Team
-        </h2>
-      </div>
-      <div class="grid grid-cols-3 gap-6">
-        {
-          team.map((member) => (
-            <div class="overflow-hidden rounded-[20px] bg-[#F1ECDD]">
-              <div class="aspect-4/5 overflow-hidden">
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  class="block h-full w-full object-cover"
-                />
-              </div>
-              <div class="p-5.5">
-                <h3 class="mt-0 mb-1 font-serif text-[17px] text-brand-dark">
-                  {member.name}
-                </h3>
-                <p class="m-0 text-[16px] font-semibold tracking-wide text-brand uppercase">
-                  {member.role}
-                </p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-
     <CtaBanner
       heading="Let's build something together"
       body="Whether you need talent, technology, or both — our team is ready to help."
