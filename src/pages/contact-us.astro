@@ -41,6 +41,24 @@ import PageHero from '../components/PageHero.astro';
         </div>
 
         <form id="contact-form">
+          <input
+            type="hidden"
+            name="access_key"
+            value="357e8c8d-0567-41e3-9973-8a273173dd08"
+          />
+          <input
+            type="hidden"
+            name="subject"
+            value="New contact form submission — P & C Technology"
+          />
+          <input
+            type="checkbox"
+            name="botcheck"
+            class="hidden"
+            style="display: none;"
+            tabindex="-1"
+            autocomplete="off"
+          />
           <div class="mb-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div>
               <label
@@ -49,6 +67,7 @@ import PageHero from '../components/PageHero.astro';
               >
               <input
                 type="text"
+                name="name"
                 required
                 class="box-border w-full rounded-[10px] border border-brand/20 bg-cream px-4 py-3.5 text-sm focus:outline-2 focus:outline-brand"
               />
@@ -60,6 +79,7 @@ import PageHero from '../components/PageHero.astro';
               >
               <input
                 type="email"
+                name="email"
                 required
                 class="box-border w-full rounded-[10px] border border-brand/20 bg-cream px-4 py-3.5 text-sm focus:outline-2 focus:outline-brand"
               />
@@ -71,6 +91,7 @@ import PageHero from '../components/PageHero.astro';
             >
             <input
               type="text"
+              name="company"
               class="box-border w-full rounded-[10px] border border-brand/20 bg-cream px-4 py-3.5 text-sm focus:outline-2 focus:outline-brand"
             />
           </div>
@@ -80,13 +101,20 @@ import PageHero from '../components/PageHero.astro';
             >
             <textarea
               rows="5"
+              name="message"
               required
               class="box-border w-full resize-y rounded-[10px] border border-brand/20 bg-cream px-4 py-3.5 text-sm focus:outline-2 focus:outline-brand"
             ></textarea>
           </div>
+          <p
+            id="contact-error"
+            class="mb-5 hidden text-sm font-semibold text-red-600"
+          >
+            Something went wrong. Please try again or email us directly.
+          </p>
           <button
             type="submit"
-            class="cursor-pointer rounded-full border-0 bg-brand px-8 py-3.5 font-sans text-sm font-bold text-cream!"
+            class="cursor-pointer rounded-full border-0 bg-brand px-8 py-3.5 font-sans text-sm font-bold text-cream! disabled:cursor-not-allowed disabled:opacity-60"
           >
             Send Message
           </button>
@@ -122,11 +150,43 @@ import PageHero from '../components/PageHero.astro';
 </BaseLayout>
 
 <script>
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById(
+    'contact-form',
+  ) as HTMLFormElement | null;
   const success = document.getElementById('contact-success');
-  form?.addEventListener('submit', (e) => {
+  const error = document.getElementById('contact-error');
+  const submitButton = form?.querySelector(
+    'button[type="submit"]',
+  ) as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    form.classList.add('hidden');
-    success?.classList.remove('hidden');
+    error?.classList.add('hidden');
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        form.classList.add('hidden');
+        success?.classList.remove('hidden');
+      } else {
+        throw new Error(result.message ?? 'Submission failed');
+      }
+    } catch {
+      error?.classList.remove('hidden');
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
+    }
   });
 </script>
